@@ -1,41 +1,65 @@
 .profile {
   margin: 0 auto;
-  border: 1px solid black;
+  border: 5px solid black;
   width: 30%;
   height: auto;
   display: flex;
-  flex-direction: column; /* Ensure children stack vertically */
-  align-items: center; /* Center children horizontally */
+  flex-direction: column;
+  align-items: center;
+  background-color: aliceblue;
+  min-width: 20%;
+}
+
+h4 {
+  text-align: center;
+  margin-top: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: rgb(53, 53, 53);
 }
 
 .img-wrapper {
   width: 100%;
-  text-align: center; /* Center content horizontally within the wrapper */
+  text-align: center;
+  display: block;
 }
 
 .img-wrapper > img {
-  border: 5px solid black; /* Example border */
-  width: 80%; /* Adjust width of the image as needed */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%;
+  height: auto;
 }
 
 .name {
   font-size: 29px;
-  margin-top: 20px; /* Example margin to separate name from image */
-  text-align: center; /* Center text horizontally */
+  margin: 10px;
+  text-align: center;
+  font-family: monospace;
 }
 
 .myself {
   font-family: monospace;
   font-size: 18px;
-  text-align: center; /* Center text horizontally */
+  text-align: center;
+  margin: 10px;
 }
 
 .skills {
   display: flex;
   gap: 10px;
   width: 70%;
+  flex-wrap: wrap;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  margin-bottom: 20px;
 }
 
-.skills > div {
+/* .skills > div {
+} */
+
+.skill {
+  padding: 3px;
+  border-radius: 5px;
 }

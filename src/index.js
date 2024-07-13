@@ -1,7 +1,34 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-// import App from "./App";
+
+const skills = [
+  {
+    name: "Java",
+    level: "intermediate",
+    color: "#ffa630",
+  },
+  {
+    name: "React",
+    level: "beginner",
+    color: "#d1495b",
+  },
+  {
+    name: "JavaScript",
+    level: "intermediate",
+    color: "#611c35",
+  },
+  {
+    name: "HTML+CSS",
+    level: "intermediate",
+    color: "#00798c",
+  },
+  {
+    name: "Git & GitHub",
+    level: "beginner",
+    color: "#00711c",
+  },
+];
 
 function App() {
   return (
@@ -14,22 +41,65 @@ function App() {
 function Profile() {
   return (
     <div className="profile">
-      <div className="img-wrapper">
-        <img src="./IMG_2183.JPG" alt="myPhoto" className="photo" />
-      </div>
+      <Avatar imgURL="./А Т Б.jpg" />
+      <Intro />
+      <SkillList />
+    </div>
+  );
+}
+
+function Avatar(prop) {
+  return (
+    <div className="img-wrapper">
+      <img src={prop.imgURL} alt="myPhoto" className="photo" />
+    </div>
+  );
+}
+
+function SkillList() {
+  return (
+    <div className="skills">
+      {skills.map((skill) => (
+        <Skill
+          key={skill.name}
+          content={skill.name}
+          color={skill.color}
+          level={skill.level}
+        />
+      ))}
+    </div>
+  );
+}
+
+function Intro() {
+  return (
+    <div>
       <h3 className="name">Ivan Cherkes</h3>
       <p className="myself">
-        Young software engineer. Student at Atlantic Technological University.
-        In my spare time from studying like to work out, boxing, running and
-        traveling. Enjoying and exploring the life. :)
+        Young software engineer from Ukraine 🇺🇦. Student at Atlantic
+        Technological University in Ireland 🇮🇪. In my spare time from studying I
+        like to work out, do boxing, run and travelling. Enjoying and exploring
+        the life :)
       </p>
-      <div className="skills">
-        <div className="html">HTML+CSS🐽</div>
-        <div className="javascript">JavaScript</div>
-        <div className="java">Java</div>
-        <div className="react">React</div>
-        <div className="software">Software Development</div>
-      </div>
+      <h4>Слава Україні</h4>
+    </div>
+  );
+}
+
+function Skill({ color, content, level }) {
+  const style = {
+    backgroundColor: color,
+  };
+
+
+  return (
+    <div className="skill" style={style}>
+      {content}
+      <span>
+         {level === "beginner" && "😜"}
+         {level === "intermediate" && "👺"}
+         {level === "strong" && "🧠"}
+      </span>
     </div>
   );
 }
@@ -40,7 +110,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
